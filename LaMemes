@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Meme Gallery</h1>
+        <p>Enjoy these 25 hilarious memes with descriptions!</p>
+    </header>
+
+    <section id="memes">
+        <!-- Meme 1 -->
+        <div class="meme">
+            <img src="images/meme1.jpg" alt="Meme 1">
+            <p class="description">Your description for Meme 1 goes here.</p>
+        </div>
+
+        <!-- Meme 2 -->
+        <div class="meme">
+            <img src="images/meme2.jpg" alt="Meme 2">
+            <p class="description">Your description for Meme 2 goes here.</p>
+        </div>
+
+        <!-- Repeat this block for all 25 memes -->
+        
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Meme Gallery</p>
+    </footer>
+</body>
+</html>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffe6e6; /* Светло-розовый фон */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #ff99cc;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+#meme {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.meme {
+    margin: 20px;
+    text-align: center;
+}
+
+.meme img {
+    max-width: 300px;
+    height: auto;
+    border: 2px solid #ff99cc;
+    border-radius: 8px;
+}
+
+.description {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #ff99cc;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+<section id="test">
+    <h2>Take the Quiz</h2>
+    
+    <div id="questions">
+        <!-- Вопросы -->
+        <div class="question">
+            <p>1. What is the capital of France?</p>
+            <input type="text" id="q1">
+        </div>
+
+        <div class="question">
+            <p>2. What is 5 + 5?</p>
+            <input type="text" id="q2">
+        </div>
+
+        <!-- Добавим еще простые вопросы -->
+
+        <!-- Задание вставить буквы в правильном порядке -->
+        <div class="question">
+            <p>Rearrange the letters to form a word: "P L E A P"</p>
+            <input type="text" id="word1">
+        </div>
+
+        <!-- Задание для других слов -->
+        
+    </div>
+
+    <button onclick="submitQuiz()">Submit Quiz</button>
+
+    <div id="results"></div>
+</section>
+
+<script>
+function submitQuiz() {
+    let score = 0;
+    let totalQuestions = 3; // Например, 2 вопроса + 1 задание
+
+    // Проверка ответов
+    if (document.getElementById('q1').value.toLowerCase() === 'paris') {
+        score++;
+    }
+    if (document.getElementById('q2').value === '10') {
+        score++;
+    }
+    if (document.getElementById('word1').value.toLowerCase() === 'apple') {
+        score++;
+    }
+
+    // Вывод результатов
+    let resultText = `You scored ${score} out of ${totalQuestions}. `;
+
+    // Присваивание титула
+    if (score === totalQuestions) {
+        resultText += "Congratulations, you earned the title of 'Master of Memes'!";
+    } else if (score >= totalQuestions / 2) {
+        resultText += "Good job! You earned the title of 'Meme Enthusiast'.";
+    } else {
+        resultText += "Keep trying! You earned the title of 'Meme Beginner'.";
+    }
+
+    document.getElementById('results').innerHTML = resultText;
+}
+</script>
